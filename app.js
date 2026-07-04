@@ -159,11 +159,7 @@
   duelToggle.addEventListener("change", () => {
     duelMode = duelToggle.checked;
     statsBtn.hidden = !duelMode;
-    if (duelMode) {
-      resetTally();
-    } else {
-      closeDrawer();
-    }
+    if (!duelMode) closeDrawer();
   });
 
   document.addEventListener("keydown", (e) => {
