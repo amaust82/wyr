@@ -15,34 +15,15 @@
   <div class="app">
     <header class="topbar">
       <h1>Would You Rather? <span class="wobble">🤔</span></h1>
-      <label class="duel-toggle" title="Track choices as you swipe">
-        <input type="checkbox" id="duelToggle" />
-        <span>Duel Mode</span>
-      </label>
+      <div class="header-actions">
+        <label class="duel-toggle" title="Track choices as you swipe">
+          <input type="checkbox" id="duelToggle" />
+          <span>Duel Mode</span>
+        </label>
+        <button class="icon-btn" id="statsBtn" aria-label="Open stats" hidden>&#128202;</button>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">&#127769;</button>
+      </div>
     </header>
-
-    <div class="tally" id="tally" hidden>
-      <div class="tally-row" data-pair="EI">
-        <span class="tally-label">E</span>
-        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
-        <span class="tally-label">I</span>
-      </div>
-      <div class="tally-row" data-pair="SN">
-        <span class="tally-label">S</span>
-        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
-        <span class="tally-label">N</span>
-      </div>
-      <div class="tally-row" data-pair="TF">
-        <span class="tally-label">T</span>
-        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
-        <span class="tally-label">F</span>
-      </div>
-      <div class="tally-row" data-pair="JP">
-        <span class="tally-label">J</span>
-        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
-        <span class="tally-label">P</span>
-      </div>
-    </div>
 
     <main class="stage">
       <div class="card-shadow"></div>
@@ -68,6 +49,37 @@
     </div>
 
     <p class="progress" id="progress"></p>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-handle"></div>
+    <div class="drawer-header">
+      <h2>Duel Mode Stats</h2>
+      <button class="icon-btn" id="drawerCloseBtn" aria-label="Close stats">&times;</button>
+    </div>
+    <div class="tally" id="tally">
+      <div class="tally-row" data-pair="EI">
+        <span class="tally-label">E</span>
+        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
+        <span class="tally-label">I</span>
+      </div>
+      <div class="tally-row" data-pair="SN">
+        <span class="tally-label">S</span>
+        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
+        <span class="tally-label">N</span>
+      </div>
+      <div class="tally-row" data-pair="TF">
+        <span class="tally-label">T</span>
+        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
+        <span class="tally-label">F</span>
+      </div>
+      <div class="tally-row" data-pair="JP">
+        <span class="tally-label">J</span>
+        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
+        <span class="tally-label">P</span>
+      </div>
+    </div>
   </div>
 
   <script src="questions.js"></script>

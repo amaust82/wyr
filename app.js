@@ -8,7 +8,11 @@
   const nextBtn = document.getElementById("nextBtn");
   const shuffleBtn = document.getElementById("shuffleBtn");
   const duelToggle = document.getElementById("duelToggle");
-  const tallyEl = document.getElementById("tally");
+  const statsBtn = document.getElementById("statsBtn");
+  const themeBtn = document.getElementById("themeBtn");
+  const drawer = document.getElementById("drawer");
+  const drawerBackdrop = document.getElementById("drawerBackdrop");
+  const drawerCloseBtn = document.getElementById("drawerCloseBtn");
 
   const SWIPE_THRESHOLD = 100;
 
@@ -154,8 +158,12 @@
 
   duelToggle.addEventListener("change", () => {
     duelMode = duelToggle.checked;
-    tallyEl.hidden = !duelMode;
-    if (duelMode) resetTally();
+    statsBtn.hidden = !duelMode;
+    if (duelMode) {
+      resetTally();
+    } else {
+      closeDrawer();
+    }
   });
 
   document.addEventListener("keydown", (e) => {
@@ -163,7 +171,50 @@
     if (e.key === "ArrowLeft") goPrev();
   });
 
+  // --- Stats drawer ---
+  function openDrawer() {
+    drawer.classList.add("open");
+    drawerBackdrop.hidden = false;
+    drawer.setAttribute("aria-hidden", "false");
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove("open");
+    drawerBackdrop.hidden = true;
+    drawer.setAttribute("aria-hidden", "true");
+  }
+
+  statsBtn.addEventListener("click", openDrawer);
+  drawerCloseBtn.addEventListener("click", closeDrawer);
+  drawerBackdrop.addEventListener("click", closeDrawer);
+
+  // --- Dark mode ---
+  const THEME_KEY = "wyr-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    themeBtn.textContent = theme === "dark" ? "☀️" : "🌙";
+  }
+
+  function initTheme() {
+    const stored = localStorage.getItem(THEME_KEY);
+    if (stored) {
+      applyTheme(stored);
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      applyTheme(prefersDark ? "dark" : "light");
+    }
+  }
+
+  themeBtn.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+    applyTheme(next);
+    localStorage.setItem(THEME_KEY, next);
+  });
+
   // --- Init ---
+  initTheme();
   newDeck();
   resetTally();
   render();

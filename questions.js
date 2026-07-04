@@ -17,7 +17,7 @@ const QUESTIONS = [
   { a: "Sit at the busiest, loudest lunch table", b: "Sit at a small quiet table with one or two friends", dim: "EI" },
   { a: "Answer questions out loud in class", b: "Write your answers down and turn them in", dim: "EI" },
   { a: "Go to a carnival packed with people and noise", b: "Go on a quiet nature walk with just you", dim: "EI" },
-  { a: "Recharge after a long day by hanging out with friends", b: "Recharge after a long day with quiet time alone", dim: "EI" },
+  { a: "End a long day video-calling a few friends", b: "End a long day alone in your room with music on", dim: "EI" },
   { a: "Be the loudest cheerleader for your team", b: "Be the calm one who quietly believes in your team", dim: "EI" },
   { a: "Show your artwork to the whole class at once", b: "Show your artwork to one friend first", dim: "EI" },
   { a: "Plan a group adventure with lots of friends", b: "Plan a quiet adventure just for you", dim: "EI" },
@@ -44,7 +44,7 @@ const QUESTIONS = [
   { a: "Organize your rock collection by real facts like size and color", b: "Imagine each rock has its own secret magical power", dim: "SN" },
   { a: "Retell a story exactly the way you heard it", b: "Retell a story your own new way, with a twist", dim: "SN" },
   { a: "Plant a garden by following exact planting instructions", b: "Plant a garden and imagine what surprises might grow", dim: "SN" },
-  { a: "Trust what you can see, touch, and test", b: "Trust your gut feeling about how things might turn out", dim: "SN" },
+  { a: "Check the weather forecast before planning a picnic", b: "Just go with your gut about whether it'll rain", dim: "SN" },
 
   // Thinking / Feeling
   { a: "Make the fair call even if your friend gets upset", b: "Bend the rule a little to keep everyone happy", dim: "TF" },
@@ -55,18 +55,18 @@ const QUESTIONS = [
   { a: "Pick teams using strict rules like height or skill", b: "Pick teams so nobody feels left out", dim: "TF" },
   { a: "Win a prize for the smartest answer", b: "Win a prize for being the best friend", dim: "TF" },
   { a: "Tell a friend their drawing has mistakes so they can fix it", b: "Tell them it's perfect so they feel proud", dim: "TF" },
-  { a: "Make big choices with your head", b: "Make big choices with your heart", dim: "TF" },
+  { a: "Pick your project partner because they're best at the subject", b: "Pick your project partner because they're the most fun to work with", dim: "TF" },
   { a: "Be a judge who always follows the rulebook", b: "Be a judge who listens to everyone's feelings first", dim: "TF" },
   { a: "Point out when a rule gets broken, even for a friend", b: "Look the other way to keep the peace", dim: "TF" },
   { a: "Decide a class vote by counting votes exactly", b: "Decide a class vote by checking how everyone truly feels", dim: "TF" },
   { a: "Give advice that's totally honest, even if it stings", b: "Give advice that's gentle, even if it's not the full truth", dim: "TF" },
   { a: "Finish an assignment your way because it's more correct", b: "Finish it the group's way so nobody's upset", dim: "TF" },
-  { a: "Be praised for being super logical", b: "Be praised for being super caring", dim: "TF" },
+  { a: "Be the friend everyone calls to solve a tricky problem", b: "Be the friend everyone calls when they need a hug", dim: "TF" },
   { a: "Choose the smartest plan even if a friend disagrees", b: "Choose the plan that keeps your friend happy", dim: "TF" },
   { a: "Referee a game by the book, no exceptions", b: "Referee a game with a little extra kindness", dim: "TF" },
   { a: "Explain exactly why someone is wrong", b: "Find a gentle way to help them feel okay about it", dim: "TF" },
-  { a: "Stick to a decision because it's the right one", b: "Change your decision because someone's feelings changed", dim: "TF" },
-  { a: "Care most about being right", b: "Care most about everyone getting along", dim: "TF" },
+  { a: "Keep your vote for movie night because it's the fairest pick", b: "Change your vote because your friend really wants the other movie", dim: "TF" },
+  { a: "Win the debate even if it makes things a little awkward", b: "Drop your point in the debate so everyone can move on happily", dim: "TF" },
 
   // Judging / Perceiving
   { a: "Plan your whole birthday party weeks ahead", b: "Decide what to do the morning of your birthday", dim: "JP" },
@@ -88,7 +88,7 @@ const QUESTIONS = [
   { a: "Plan out a fort completely before you build it", b: "Start building and see what the fort turns into", dim: "JP" },
   { a: "Stick to the plan even if something more fun comes up", b: "Drop the plan the second something more fun comes up", dim: "JP" },
   { a: "Keep a tidy, organized desk", b: "Keep a desk full of fun clutter you understand", dim: "JP" },
-  { a: "Decide now so it's settled", b: "Keep your options open as long as possible", dim: "JP" },
+  { a: "Pick your ice cream flavor the second you walk in", b: "Taste a few samples before deciding", dim: "JP" },
 
   // Just for fun (not scored)
   { a: "Have spaghetti for hair", b: "Have marshmallows for teeth", dim: null },

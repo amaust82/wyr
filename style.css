@@ -5,7 +5,52 @@
   --coral: #ff6b6b;
   --ink: #2b2250;
   --card-bg: #fffaf0;
+  --option-a-text: #0e8074;
+  --option-b-text: #c23e3e;
+  --prompt-color: #8b7fd1;
+  --btn-bg: rgba(255, 255, 255, 0.85);
+  --btn-text: var(--ink);
+  --icon-btn-bg: rgba(0, 0, 0, 0.18);
+  --drawer-bg: #fffaf0;
+  --btn-primary-bg: var(--ink);
+  --btn-primary-text: #fff;
   color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg-1: #1b1533;
+  --bg-2: #05040d;
+  --ink: #f1eefe;
+  --card-bg: #241c3d;
+  --option-a-text: #5eead4;
+  --option-b-text: #ff9c92;
+  --prompt-color: #b9afe0;
+  --btn-bg: rgba(255, 255, 255, 0.12);
+  --btn-text: #fff;
+  --icon-btn-bg: rgba(255, 255, 255, 0.14);
+  --drawer-bg: #241c3d;
+  --btn-primary-bg: #f1eefe;
+  --btn-primary-text: #241c3d;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-1: #1b1533;
+    --bg-2: #05040d;
+    --ink: #f1eefe;
+    --card-bg: #241c3d;
+    --option-a-text: #5eead4;
+    --option-b-text: #ff9c92;
+    --prompt-color: #b9afe0;
+    --btn-bg: rgba(255, 255, 255, 0.12);
+    --btn-text: #fff;
+    --icon-btn-bg: rgba(255, 255, 255, 0.14);
+    --drawer-bg: #241c3d;
+    --btn-primary-bg: #f1eefe;
+    --btn-primary-text: #241c3d;
+    color-scheme: dark;
+  }
 }
 
 * {
@@ -47,6 +92,32 @@ body {
   gap: 8px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.icon-btn {
+  border: none;
+  background: var(--icon-btn-bg);
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.icon-btn:active {
+  transform: translateY(1px);
+}
+
 h1 {
   font-family: "Baloo 2", "Nunito", system-ui, sans-serif;
   font-size: clamp(22px, 6vw, 28px);
@@ -86,14 +157,10 @@ h1 {
 }
 
 .tally {
-  background: rgba(255,255,255,0.9);
-  border-radius: 16px;
-  padding: 10px 14px;
-  margin: 4px 0 10px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  gap: 10px;
+  padding: 4px 4px 4px;
 }
 
 .tally-row {
@@ -108,6 +175,7 @@ h1 {
 .tally-label {
   text-align: center;
   color: var(--ink);
+  min-width: 34px;
 }
 
 .tally-bar {
@@ -124,6 +192,60 @@ h1 {
 }
 .tally-fill[data-side="left"] { background: var(--teal); }
 .tally-fill[data-side="right"] { background: var(--coral); }
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 20;
+}
+
+.drawer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  transform: translate(-50%, 100%);
+  background: var(--drawer-bg);
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+  padding: 8px 20px calc(20px + env(safe-area-inset-bottom));
+  z-index: 21;
+  transition: transform 0.3s ease;
+}
+
+.drawer.open {
+  transform: translate(-50%, 0);
+}
+
+.drawer-handle {
+  width: 40px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(128, 128, 128, 0.35);
+  margin: 8px auto 12px;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.drawer-header h2 {
+  font-family: "Baloo 2", sans-serif;
+  font-size: 17px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.drawer .icon-btn {
+  background: rgba(128, 128, 128, 0.18);
+  color: var(--ink);
+  font-size: 20px;
+}
 
 .stage {
   position: relative;
@@ -166,7 +288,7 @@ h1 {
   font-family: "Baloo 2", sans-serif;
   font-weight: 700;
   font-size: 18px;
-  color: #8b7fd1;
+  color: var(--prompt-color);
   margin: 0 0 14px;
 }
 
@@ -184,13 +306,13 @@ h1 {
 
 .option-a {
   background: rgba(23, 195, 178, 0.14);
-  color: #0e8074;
+  color: var(--option-a-text);
   border: 2px solid rgba(23, 195, 178, 0.35);
 }
 
 .option-b {
   background: rgba(255, 107, 107, 0.12);
-  color: #c23e3e;
+  color: var(--option-b-text);
   border: 2px solid rgba(255, 107, 107, 0.35);
 }
 
@@ -220,7 +342,7 @@ h1 {
 .just-for-fun {
   text-align: center;
   font-size: 12px;
-  color: #a99fdd;
+  color: var(--prompt-color);
   margin: 12px 0 0;
   font-weight: 700;
 }
@@ -249,8 +371,8 @@ h1 {
   font-size: 16px;
   font-weight: 800;
   font-family: inherit;
-  background: rgba(255,255,255,0.85);
-  color: var(--ink);
+  background: var(--btn-bg);
+  color: var(--btn-text);
   cursor: pointer;
   box-shadow: 0 6px 14px rgba(0,0,0,0.18);
 }
@@ -260,8 +382,8 @@ h1 {
 }
 
 .btn-primary {
-  background: var(--ink);
-  color: #fff;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   flex: 1;
   max-width: 220px;
 }
