@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>Would You Rather?</title>
+  <meta name="description" content="A swipeable would-you-rather game." />
+  <meta name="theme-color" content="#2f2b6b" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤔</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;700;800&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1>Would You Rather? <span class="wobble">🤔</span></h1>
+      <label class="duel-toggle" title="Track choices as you swipe">
+        <input type="checkbox" id="duelToggle" />
+        <span>Duel Mode</span>
+      </label>
+    </header>
+
+    <div class="tally" id="tally" hidden>
+      <div class="tally-row" data-pair="EI">
+        <span class="tally-label">E</span>
+        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
+        <span class="tally-label">I</span>
+      </div>
+      <div class="tally-row" data-pair="SN">
+        <span class="tally-label">S</span>
+        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
+        <span class="tally-label">N</span>
+      </div>
+      <div class="tally-row" data-pair="TF">
+        <span class="tally-label">T</span>
+        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
+        <span class="tally-label">F</span>
+      </div>
+      <div class="tally-row" data-pair="JP">
+        <span class="tally-label">J</span>
+        <div class="tally-bar"><div class="tally-fill" data-side="left"></div><div class="tally-fill" data-side="right"></div></div>
+        <span class="tally-label">P</span>
+      </div>
+    </div>
+
+    <main class="stage">
+      <div class="card-shadow"></div>
+      <div class="card" id="card">
+        <p class="prompt">Would you rather&hellip;</p>
+        <div class="option option-a" id="optionA">
+          <span class="hint hint-left">&larr;</span>
+          <p></p>
+        </div>
+        <div class="or-divider">or</div>
+        <div class="option option-b" id="optionB">
+          <p></p>
+          <span class="hint hint-right">&rarr;</span>
+        </div>
+        <p class="just-for-fun" id="justForFun" hidden>just for fun &mdash; doesn't count 🎉</p>
+      </div>
+    </main>
+
+    <div class="controls">
+      <button class="btn" id="prevBtn" aria-label="Previous question">&larr;</button>
+      <button class="btn btn-primary" id="nextBtn">Next &rarr;</button>
+      <button class="btn" id="shuffleBtn" aria-label="Reshuffle">&#128256;</button>
+    </div>
+
+    <p class="progress" id="progress"></p>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
