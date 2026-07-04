@@ -341,13 +341,6 @@ h1 {
   text-transform: uppercase;
 }
 
-.just-for-fun {
-  text-align: center;
-  font-size: 12px;
-  color: var(--prompt-color);
-  margin: 12px 0 0;
-  font-weight: 700;
-}
 
 .card.leaning-a .option-a {
   transform: scale(1.04);

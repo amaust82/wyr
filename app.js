@@ -2,7 +2,6 @@
   const card = document.getElementById("card");
   const optionAText = document.querySelector("#optionA p");
   const optionBText = document.querySelector("#optionB p");
-  const justForFun = document.getElementById("justForFun");
   const progress = document.getElementById("progress");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
@@ -44,7 +43,6 @@
     const q = deck[index];
     optionAText.textContent = q.a;
     optionBText.textContent = q.b;
-    justForFun.hidden = !!q.dim;
     progress.textContent = `${index + 1} / ${deck.length}`;
     card.style.transform = "";
     card.classList.remove("leaning-a", "leaning-b");
