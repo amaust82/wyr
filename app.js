@@ -184,7 +184,13 @@
     drawer.setAttribute("aria-hidden", "true");
   }
 
-  statsBtn.addEventListener("click", openDrawer);
+  statsBtn.addEventListener("click", () => {
+    if (drawer.classList.contains("open")) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  });
   drawerCloseBtn.addEventListener("click", closeDrawer);
   drawerBackdrop.addEventListener("click", closeDrawer);
 
